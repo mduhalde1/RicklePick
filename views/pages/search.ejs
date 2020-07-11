@@ -1,0 +1,44 @@
+<h1 id="main-title" class="container">Resultados de la busqueda '<%=result.search%>':</h1>
+<div class="container">
+<% if (result['episodes'] || result['locations'] || result['characters']) {%>
+    <% if (result['characters']) { %>
+        <div class="media">
+            <div class="media-body">
+                <h4 class="mt-0">Personajes:</h4>
+                    <ul class="list-unstyled">
+                        <% result.characters.forEach(function(character){ %>
+                            <li><a href ="javascript:window.location='/character/<%=character.id%>';"><%= character.name %></a></li>
+                        <% }) %>
+                    </ul>
+            </div>
+         </div>
+        <%}%>
+<% if (result['episodes']) { %>
+<div class="media">
+    <div class="media-body">
+        <h4 class="mt-0">Episodios:</h4>
+            <ul class="list-unstyled">
+                <% result.episodes.forEach(function(episode){ %>
+                    <li><a href ="javascript:window.location='/episode/<%=episode.id%>';"><%= episode.name %></a></li>
+                <% }) %>
+            </ul>
+    </div>
+ </div>
+<%}%>
+<% if (result['locations']) { %>
+    <div class="media">
+        <div class="media-body">
+            <h4 class="mt-0">Lugares:</h4>
+                <ul class="list-unstyled">
+                    <% result.locations.forEach(function(location){ %>
+                        <li><a href ="javascript:window.location='/location/<%=location.id%>';"><%= location.name %></a></li>
+                    <% }) %>
+                </ul>
+        </div>
+     </div>
+    <%}%>
+<%} else {%>
+    <h4 class='mt-0'>No se encontraron resultados :(</h4>
+<%}%>
+
+ </div>

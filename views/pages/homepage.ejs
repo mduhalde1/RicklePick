@@ -1,0 +1,24 @@
+<style> 
+    .clickable:hover { 
+        background: rgb(187, 187, 187); 
+    } 
+</style> 
+<h1 class="display-4">Episodios:</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha</th>
+      <th>Codigo</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% episodes.forEach(function(episode){ %>
+      <tr class="clickable" onclick="javascript:window.location='/episode/<%=episode.id%>';">
+        <td ><%= episode.name %></td>
+        <td ><%= episode.air_date %></td>
+        <td ><%= episode.episode %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

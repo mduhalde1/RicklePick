@@ -1,0 +1,42 @@
+<h1 id="main-title" class="container">Personaje:</h1>
+<div class="container">
+<div class="media">
+    <img src='<%=character.image%>' class="align-self-start mr-3" alt="...">
+    <div class="media-body">
+        
+        <h4 class="mt-0"><%= character.name %></h4>
+        <dl class="row">
+                <dt class="col-sm-3">Estado:</dt>
+                <dd class="col-sm-9"><%=character.status%></dd>
+                <dt class="col-sm-3">Especie:</dt>
+                <dd class="col-sm-9"><%=character.species%></dd>
+                <dt class="col-sm-3">Tipo:</dt>
+                <dd class="col-sm-9"><%=character.type%></dd>
+                <dt class="col-sm-3">Genero:</dt>
+                <dd class="col-sm-9"><%=character.gender%></dd>
+                <% if (character.origin.id){ %>
+                    <dt class="col-sm-3">Lugar de Origen:</dt>
+                    <dd class="col-sm-9"><a href="javascript:window.location='/location/<%=character.origin.id%>';" ><%=character.origin.name%></a></dd>
+                <%} else {%>
+                    <dt class="col-sm-3">Lugar de Origen:</dt>
+                    <dd class="col-sm-9"> </dd>
+                <% } %>
+                <% if (character.location.id){ %>
+                    <dt class="col-sm-3">Locacion:</dt>
+                    <dd class="col-sm-9"><a href="javascript:window.location='/location/<%=character.location.id%>';" ><%=character.location.name%></a></dd>
+                <%} else {%>
+                    <dt class="col-sm-3">Locacion:</dt>
+                    <dd class="col-sm-9"> </dd>
+                <%}%>
+                <dt class="col-sm-3">Episodios:</dt>
+                <dd class="col-sm-9">
+                        <ul class="list-unstyled">
+                            <% character.episode.forEach(function(episode){ %>
+                                <li><a href ="javascript:window.location='/episode/<%=episode.id%>';"><%= episode.name %></a></li>
+                            <% }) %>
+                        </ul>
+                </dd>
+        </dl>
+    </div>
+ </div>
+ </div>

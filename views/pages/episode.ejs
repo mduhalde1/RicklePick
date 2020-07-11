@@ -1,0 +1,23 @@
+<h1 id="main-title" class="container">Episodio:</h1>
+<div class="container">
+
+<div class="media">
+    <div class="media-body">
+        <h4 class="mt-0"><%= episode.name %></h4>
+        <dl class="row">
+                <dt class="col-sm-3">Fecha:</dt>
+                <dd class="col-sm-9"><%=episode.air_date%></dd>
+                <dt class="col-sm-3">Codigo:</dt>
+                <dd class="col-sm-9"><%=episode.episode%></dd>
+                <dt class="col-sm-3">Personajes:</dt>
+                <dd class="col-sm-9">
+                        <ul class="list-unstyled">
+                            <% episode.characters.forEach(function(character){ %>
+                                <li><a href ="javascript:window.location='/character/<%=character.id%>';"><%= character.name %></a></li>
+                            <% }) %>
+                        </ul>
+                </dd>
+        </dl>
+    </div>
+ </div>
+ </div>

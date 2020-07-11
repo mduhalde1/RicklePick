@@ -1,0 +1,22 @@
+<h1 id="main-title" class="container">Lugar:</h1>
+<div class="container">
+<div class="media">
+    <div class="media-body">
+        <h4 class="mt-0"><%= location.name %></h4>
+        <dl class="row">
+                <dt class="col-sm-3">Tipo:</dt>
+                <dd class="col-sm-9"><%=location.type%></dd>
+                <dt class="col-sm-3">Dimension:</dt>
+                <dd class="col-sm-9"><%=location.dimension%></dd>
+                <dt class="col-sm-3">Residentes:</dt>
+                <dd class="col-sm-9">
+                        <ul class="list-unstyled">
+                            <% location.residents.forEach(function(character){ %>
+                                <li><a href ="javascript:window.location='/character/<%=character.id%>';"><%= character.name %></a></li>
+                            <% }) %>
+                        </ul>
+                </dd>
+        </dl>
+    </div>
+ </div>
+ </div>
